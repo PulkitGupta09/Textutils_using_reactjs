@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-// import { CopyToClipboard } from "react-copy-to-clipboard";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 export default function TextForm(props) {
     const handleUpClick = ()=>{
@@ -34,13 +34,13 @@ export default function TextForm(props) {
             props.showAlert("Converted to RemovedNumber!","success");
     }
 
-    // // Copy to Clipboard
-    // const handleCopyClick = ({ alert }) => {
-    //     setIsCopied(true);
-    //     setTimeout(() => {
-    //         setIsCopied(false);
-    //     }, 1000);
-    // }
+    // Copy to Clipboard
+    const handleCopyClick = ({ alert }) => {
+        setIsCopied(true);
+        setTimeout(() => {
+            setIsCopied(false);
+        }, 1000);
+    }
 
     // const wordLength =(text)=>{
     //     let word = text.split(" ").length;
@@ -75,13 +75,13 @@ export default function TextForm(props) {
             <button className = "btn btn-primary mx-2" onClick = {RemovePunctuation}>Remove Punctuation</button>
             <button className = "btn btn-primary mx-2" onClick = {RemoveNumber}>Remove Numbers</button>
             <button className = "btn btn-primary mx-2" onClick = {handleClearText}>Clear Text</button>
-            {/* <CopyToClipboard text={text}>
+            <CopyToClipboard text={text}>
                         <span>
                             <button className="btn btn-success mx-2" onClick={handleCopyClick}>Copy to Clipboard</button>
                             <span>{isCopied ? <b> Copied!</b> : false}
                         </span>
                         </span>
-            </CopyToClipboard> */}
+            </CopyToClipboard>
         </div>
         <div className="container" style = {{color : props.mode==='dark'?'white':'black'}}>
         <div className="container my-3">
